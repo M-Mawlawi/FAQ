@@ -1,13 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold mb-4 text-center">Frequently Asked Questions</h1>
+    <p class="text-center text-gray-600 mb-8">Find answers to common questions below.</p>
+
+    <!-- FAQ Container -->
+    <div class="bg-white p-6 rounded-xl shadow space-y-4">
+
+      <!-- FAQ Item 1 -->
+      <div class="border-b pb-4">
+        <button class="w-full text-left flex justify-between items-center text-lg font-medium focus:outline-none toggle-btn" data-index="0">
+          What is your return policy?
+          <span class="text-blue-500 text-xl">+</span>
+        </button>
+        <div class="mt-2 text-gray-600 hidden answer">
+          You can return items within 30 days of purchase with a receipt.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="border-b pb-4">
+        <button class="w-full text-left flex justify-between items-center text-lg font-medium focus:outline-none toggle-btn" data-index="1">
+          Do you offer customer support?
+          <span class="text-blue-500 text-xl">+</span>
+        </button>
+        <div class="mt-2 text-gray-600 hidden answer">
+          Yes, we offer 24/7 support through chat, email, and phone.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="pb-4">
+        <button class="w-full text-left flex justify-between items-center text-lg font-medium focus:outline-none toggle-btn" data-index="2">
+          How can I track my order?
+          <span class="text-blue-500 text-xl">+</span>
+        </button>
+        <div class="mt-2 text-gray-600 hidden answer">
+          Tracking information will be sent to your email after shipping.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Toggle function to show/hide answers
+    const toggleButtons = document.querySelectorAll(".toggle-btn");
+
+    toggleButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector("span");
+        answer.classList.toggle("hidden");
+        icon.textContent = answer.classList.contains("hidden") ? "+" : "−";
+      });
+    });
+  </script>
+
+</body>
 </html>
